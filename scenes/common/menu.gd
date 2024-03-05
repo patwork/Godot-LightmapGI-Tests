@@ -3,12 +3,14 @@ extends CanvasLayer
 
 @export_node_path("LightmapGI") var lightmap_gi_path: NodePath
 @export_node_path("Node3D") var scene_path: NodePath
+@export_multiline var info_text: String
 
-@onready var label_godot: Label = $Control/MarginContainer/VBoxContainer/LabelGodot
-@onready var label_os: Label = $Control/MarginContainer/VBoxContainer/LabelOS
-@onready var label_gpu: Label = $Control/MarginContainer/VBoxContainer/LabelGPU
+@onready var label_godot: Label = $Control/MarginContainer/HBoxContainer/VBoxContainer/LabelGodot
+@onready var label_os: Label = $Control/MarginContainer/HBoxContainer/VBoxContainer/LabelOS
+@onready var label_gpu: Label = $Control/MarginContainer/HBoxContainer/VBoxContainer/LabelGPU
+@onready var rich_text_label_info: RichTextLabel = $Control/MarginContainer/HBoxContainer/RichTextLabelInfo
 
-@onready var scene_toggle: CheckButton = $Control/MarginContainer/VBoxContainer/SceneToggle
+@onready var scene_toggle: CheckButton = $Control/MarginContainer/HBoxContainer/VBoxContainer/SceneToggle
 
 
 func _ready() -> void:
@@ -18,6 +20,7 @@ func _ready() -> void:
 
 	assert(not lightmap_gi_path.is_empty())
 	scene_toggle.visible = not scene_path.is_empty()
+	rich_text_label_info.text = info_text
 
 
 func return_to_main_scene() -> void:
