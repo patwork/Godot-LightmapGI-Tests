@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdgptall7l578"]
+
+[ext_resource type="PackedScene" uid="uid://cgcny1l5a63hl" path="res://scenes/test01/boxes.blend" id="1_lvtmj"]
+[ext_resource type="PackedScene" uid="uid://chakex8pjhjee" path="res://scenes/common/menu.tscn" id="1_yxaw4"]
+[ext_resource type="LightmapGIData" uid="uid://cidd6fh8yxaps" path="res://scenes/test01/bake/test_01.lmbake" id="2_shiur"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g73iv"]
+
+[sub_resource type="Sky" id="Sky_x13d2"]
+sky_material = SubResource("ProceduralSkyMaterial_g73iv")
+
+[sub_resource type="Environment" id="Environment_b1t45"]
+background_mode = 2
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_x13d2")
+tonemap_mode = 2
+
+[node name="Test01" type="Node3D"]
+
+[node name="Menu" parent="." instance=ExtResource("1_yxaw4")]
+lightmap_gi = NodePath("../LightmapGI")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_b1t45")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 3, 2, 6)
+
+[node name="boxes" parent="." instance=ExtResource("1_lvtmj")]
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+generate_probes_subdiv = 0
+light_data = ExtResource("2_shiur")
