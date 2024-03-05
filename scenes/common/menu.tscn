@@ -48,4 +48,12 @@ button_pressed = true
 text = "Lightmap toggle"
 flat = true
 
+[node name="SceneToggle" type="CheckButton" parent="Control/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+button_pressed = true
+text = "Scene toggle"
+flat = true
+
 [connection signal="toggled" from="Control/MarginContainer/VBoxContainer/LightmapToggle" to="." method="_on_lightmap_toggle_toggled"]
+[connection signal="toggled" from="Control/MarginContainer/VBoxContainer/SceneToggle" to="." method="_on_scene_toggle_toggled"]

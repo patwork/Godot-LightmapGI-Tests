@@ -6,19 +6,19 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g73iv"]
 
-[sub_resource type="Sky" id="Sky_x13d2"]
+[sub_resource type="Sky" id="Sky_dxh2n"]
 sky_material = SubResource("ProceduralSkyMaterial_g73iv")
 
 [sub_resource type="Environment" id="Environment_b1t45"]
 background_mode = 2
 background_energy_multiplier = 2.0
-sky = SubResource("Sky_x13d2")
+sky = SubResource("Sky_dxh2n")
 tonemap_mode = 2
 
 [node name="Test01" type="Node3D"]
 
 [node name="Menu" parent="." instance=ExtResource("1_yxaw4")]
-lightmap_gi = NodePath("../LightmapGI")
+lightmap_gi_path = NodePath("../LightmapGI")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_b1t45")

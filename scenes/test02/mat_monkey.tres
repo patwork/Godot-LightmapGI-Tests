@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dlfnasigs2uwq"]
+
+[resource]
+resource_name = "mat_monkey"
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
