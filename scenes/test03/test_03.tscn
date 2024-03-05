@@ -1,0 +1,126 @@
+[gd_scene load_steps=8 format=3 uid="uid://cb1n4sekr28kc"]
+
+[ext_resource type="Script" path="res://scenes/test03/test_03.gd" id="1_mn7c8"]
+[ext_resource type="PackedScene" uid="uid://chakex8pjhjee" path="res://scenes/common/menu.tscn" id="1_yypnh"]
+[ext_resource type="PackedScene" uid="uid://dd44y68dvov6a" path="res://scenes/test03/leaks.blend" id="2_sy5kq"]
+[ext_resource type="LightmapGIData" uid="uid://b8bixyu4fme2x" path="res://scenes/test03/bake/test_03.lmbake" id="3_n7x18"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bcrf6"]
+
+[sub_resource type="Sky" id="Sky_x13d2"]
+sky_material = SubResource("ProceduralSkyMaterial_bcrf6")
+
+[sub_resource type="Environment" id="Environment_nyjtf"]
+sky = SubResource("Sky_x13d2")
+ambient_light_source = 1
+reflected_light_source = 1
+tonemap_mode = 2
+tonemap_exposure = 5.0
+
+[node name="Test03" type="Node3D"]
+script = ExtResource("1_mn7c8")
+
+[node name="Menu" parent="." instance=ExtResource("1_yypnh")]
+lightmap_gi_path = NodePath("../LightmapGI")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Camera 1"
+
+[node name="Button2" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Camera 2"
+
+[node name="Button3" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Camera 3"
+
+[node name="Button4" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Camera 4"
+
+[node name="Button5" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "Camera 5"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nyjtf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.924593, -0.267826, 0.27092, -5.96047e-08, 0.711155, 0.703035, -0.380957, -0.650021, 0.657529, 11.8751, 20.3701, 23.1325)
+current = true
+
+[node name="leaks" parent="." instance=ExtResource("2_sy5kq")]
+
+[node name="cameras" type="Node3D" parent="."]
+
+[node name="Camera3D2" type="Camera3D" parent="cameras"]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -10, 3, -7)
+
+[node name="Label3D" type="Label3D" parent="cameras/Camera3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+billboard = 1
+no_depth_test = true
+text = "Cube with normals facing inside"
+font_size = 64
+
+[node name="Camera3D3" type="Camera3D" parent="cameras"]
+transform = Transform3D(0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, 0.5, 10, 3, -7)
+
+[node name="Label3D" type="Label3D" parent="cameras/Camera3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+billboard = 1
+no_depth_test = true
+text = "Six cubes non-overlaping"
+font_size = 64
+
+[node name="Camera3D4" type="Camera3D" parent="cameras"]
+transform = Transform3D(-0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, -0.5, -10, 3, 7)
+
+[node name="Label3D" type="Label3D" parent="cameras/Camera3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+billboard = 1
+no_depth_test = true
+text = "Six cubes with overlapping"
+font_size = 64
+
+[node name="Camera3D5" type="Camera3D" parent="cameras"]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 10, 3, 7)
+
+[node name="Label3D" type="Label3D" parent="cameras/Camera3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+billboard = 1
+no_depth_test = true
+text = "Six cubes non-overlaping spread apart"
+font_size = 64
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+generate_probes_subdiv = 0
+light_data = ExtResource("3_n7x18")
+
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/VBoxContainer/Button5" to="." method="_on_button_5_pressed"]
