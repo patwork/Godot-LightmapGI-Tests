@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqdwc6jw14svp"]
+
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_a61ct"]
+[ext_resource type="Texture2D" uid="uid://c5qtbg85ee8j8" path="res://icon.png" id="1_tplr6"]
+[ext_resource type="Texture2D" uid="uid://qxmnlr4eobqe" path="res://scenes/test01/screen.jpg" id="2_snlq2"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a61ct")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Godot LightmapGI Tests v1.0"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="Test01" type="TextureButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_snlq2")
+
+[node name="Test02" type="TextureButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+texture_normal = ExtResource("1_tplr6")
+
+[node name="Test03" type="TextureButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+texture_normal = ExtResource("1_tplr6")
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Test01" to="." method="_on_test_01_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

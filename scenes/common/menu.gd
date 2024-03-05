@@ -17,7 +17,8 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		get_tree().quit()
+		var main = ProjectSettings.get_setting("application/run/main_scene")
+		get_tree().change_scene_to_file(main)
 
 
 func _on_lightmap_toggle_toggled(toggled_on: bool) -> void:
