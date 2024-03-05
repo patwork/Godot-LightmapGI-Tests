@@ -20,10 +20,14 @@ func _ready() -> void:
 	scene_toggle.visible = not scene_path.is_empty()
 
 
+func return_to_main_scene() -> void:
+	var main: String = ProjectSettings.get_setting("application/run/main_scene")
+	get_tree().change_scene_to_file(main)
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		var main: String = ProjectSettings.get_setting("application/run/main_scene")
-		get_tree().change_scene_to_file(main)
+		return_to_main_scene()
 
 
 func _on_lightmap_toggle_toggled(toggled_on: bool) -> void:
@@ -33,3 +37,7 @@ func _on_lightmap_toggle_toggled(toggled_on: bool) -> void:
 func _on_scene_toggle_toggled(toggled_on: bool) -> void:
 	if not scene_path.is_empty():
 		(get_node(scene_path) as Node3D).visible = toggled_on
+
+
+func _on_exit_pressed() -> void:
+	return_to_main_scene()
