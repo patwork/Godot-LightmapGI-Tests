@@ -83,6 +83,11 @@ _data = {
 [node name="Menu" parent="." instance=ExtResource("1_lvc3h")]
 lightmap_gi_path = NodePath("../LightmapGI")
 scene_path = NodePath("../scene")
+info_text = "The scene is used to verify the correct lighting of dynamic objects by LightmapProbes. The animation changes the position of objects so that they fall within the range of different probes, both those outside and inside the pink box.
+
+The \"One mesh\" element is a single object, while \"Separate meshes\" is a group of independent objects.
+
+The scene is lit using only WorldEnvironment with ProceduralSkyMaterial set. Probes are generated with Subdiv set to 16."
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_go7wd")

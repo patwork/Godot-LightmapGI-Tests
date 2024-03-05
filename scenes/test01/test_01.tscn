@@ -19,6 +19,11 @@ tonemap_mode = 2
 
 [node name="Menu" parent="." instance=ExtResource("1_yxaw4")]
 lightmap_gi_path = NodePath("../LightmapGI")
+info_text = "The scene includes two colorful blocks composed of several smaller adjacent pieces. The green block consists of 11 elements of different heights. The pink block consists of 12 identical cubes.
+
+When the lightmap is baked, the seams between the objects of which the blocks are composed become visible.
+
+The scene is lit using only the WorldEnvironment with ProceduralSkyMaterial. For better visibility Background Energy Multiplayer is increased to 2."
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_b1t45")

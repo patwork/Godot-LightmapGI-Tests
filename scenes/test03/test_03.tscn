@@ -22,6 +22,11 @@ script = ExtResource("1_mn7c8")
 
 [node name="Menu" parent="." instance=ExtResource("1_yypnh")]
 lightmap_gi_path = NodePath("../LightmapGI")
+info_text = "The scene is used to verify the existence of lightmaps leaks after baking. Each of the four boxes has a different geometry. The first is a simple cube with normals pointing inward. The second consists of six separate cubes touching but not overlapping. The third consists of separate cubes but overlapping. The fourth is made up of separate cubes spaced apart so that they touch only with their edges.
+
+Using the buttons in the lower right corner, you can switch between the cameras inside each box.
+
+The scene is lit only with WorldEnvironment with Clear Color set. Ambient Light and Reflected Light are Disabled. For better effect, the image is brightened in Tonemap with Exposure set to 5."
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu"]
 anchors_preset = 3
