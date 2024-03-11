@@ -8,7 +8,7 @@ The project consists of several test scenes to verify the correctness of Lightma
 
 ![](https://raw.githubusercontent.com/patwork/Godot-LightmapGI-Tests/master/scenes/test01/screen.jpg)
 
-The scene includes two colorful blocks composed of several smaller adjacent pieces. The green block consists of 11 elements of different heights. The pink block consists of 12 identical cubes.
+The scene includes two blocks composed of several smaller adjacent pieces. The green block consists of 11 elements of different heights. The pink block consists of 12 identical cubes.
 
 When the lightmap is baked, the seams between the objects of which the blocks are composed become visible.
 
