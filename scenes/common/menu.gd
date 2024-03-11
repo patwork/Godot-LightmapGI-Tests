@@ -1,10 +1,12 @@
 extends CanvasLayer
 
 
+@export var issue_url: String
 @export_node_path("LightmapGI") var lightmap_gi_path: NodePath
 @export_node_path("Node3D") var scene_path: NodePath
 @export_multiline var info_text: String
 
+@onready var button_issue: Button = $Control/MarginContainer/HBoxContainer/VBoxContainer/ButtonIssue
 @onready var label_godot: Label = $Control/MarginContainer/HBoxContainer/VBoxContainer/LabelGodot
 @onready var label_os: Label = $Control/MarginContainer/HBoxContainer/VBoxContainer/LabelOS
 @onready var label_gpu: Label = $Control/MarginContainer/HBoxContainer/VBoxContainer/LabelGPU
@@ -14,6 +16,9 @@ extends CanvasLayer
 
 
 func _ready() -> void:
+	button_issue.visible = not issue_url.is_empty()
+	button_issue.text = "view Issue #" + issue_url.substr(issue_url.rfind("/") + 1)
+
 	label_godot.text = "Godot " + Engine.get_version_info().string
 	label_os.text = OS.get_name() + " " + OS.get_version()
 	label_gpu.text = RenderingServer.get_video_adapter_name()
@@ -44,3 +49,7 @@ func _on_scene_toggle_toggled(toggled_on: bool) -> void:
 
 func _on_exit_pressed() -> void:
 	return_to_main_scene()
+
+
+func _on_button_issue_pressed() -> void:
+	OS.shell_open(issue_url)

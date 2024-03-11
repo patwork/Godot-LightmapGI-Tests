@@ -65,10 +65,16 @@ flat = true
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="ButtonIssue" type="Button" parent="Control/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+flat = true
+alignment = 0
+
 [node name="Exit" type="Button" parent="Control/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "return to main scene"
 flat = true
+alignment = 0
 
 [node name="Control" type="Control" parent="Control/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -81,4 +87,5 @@ bbcode_enabled = true
 
 [connection signal="toggled" from="Control/MarginContainer/HBoxContainer/VBoxContainer/LightmapToggle" to="." method="_on_lightmap_toggle_toggled"]
 [connection signal="toggled" from="Control/MarginContainer/HBoxContainer/VBoxContainer/SceneToggle" to="." method="_on_scene_toggle_toggled"]
+[connection signal="pressed" from="Control/MarginContainer/HBoxContainer/VBoxContainer/ButtonIssue" to="." method="_on_button_issue_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

@@ -81,6 +81,7 @@ _data = {
 [node name="Test02" type="Node3D"]
 
 [node name="Menu" parent="." instance=ExtResource("1_lvc3h")]
+issue_url = "https://github.com/godotengine/godot/issues/88101"
 lightmap_gi_path = NodePath("../LightmapGI")
 scene_path = NodePath("../scene")
 info_text = "The scene is used to verify the correct lighting of dynamic objects by LightmapProbes. The animation changes the position of objects so that they fall within the range of different probes, both those outside and inside the pink box.

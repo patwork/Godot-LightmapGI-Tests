@@ -19,6 +19,7 @@ tonemap_exposure = 3.0
 [node name="Test04" type="Node3D"]
 
 [node name="Menu" parent="." instance=ExtResource("1_cxg3r")]
+issue_url = "https://github.com/godotengine/godot/issues/89402"
 lightmap_gi_path = NodePath("../LightmapGI")
 info_text = "The scene is used to verify the generation of lightmaps of objects consisting of single walls. Each of the three boxes was created from a single cube with the front face removed. The first box has the material with cull mode set to back and normals pointing inside. The second box has material with cull mode off and normals pointing outside. The third box differs from the second only in that its material has an additional transparency set to 50%. In the middle of each box is a model with glowing material due to emission energy at 5.
 

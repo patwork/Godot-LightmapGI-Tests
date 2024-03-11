@@ -21,6 +21,7 @@ tonemap_exposure = 5.0
 script = ExtResource("1_mn7c8")
 
 [node name="Menu" parent="." instance=ExtResource("1_yypnh")]
+issue_url = "https://github.com/godotengine/godot/issues/87815"
 lightmap_gi_path = NodePath("../LightmapGI")
 info_text = "The scene is used to verify the existence of lightmaps leaks after baking. Each of the four boxes has a different geometry. The first is a simple cube with normals pointing inward. The second consists of six separate cubes touching but not overlapping. The third consists of separate cubes but overlapping. The fourth is made up of separate cubes spaced apart so that they touch only with their edges.
 
