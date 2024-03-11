@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cerwcky623kax"]
+
+[resource]
+resource_name = "mat_backface_off"
+albedo_color = Color(0.529013, 0.847698, 0.624564, 1)
+roughness = 0.5

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://morhtycskahv"]
+
+[resource]
+resource_name = "mat_monkey"
+roughness = 0.5
+emission_enabled = true
+emission = Color(0.85, 0.0935, 0.106108, 1)
+emission_energy_multiplier = 5.0

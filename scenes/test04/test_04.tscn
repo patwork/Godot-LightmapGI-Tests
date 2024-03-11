@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3mfft8gfisgq"]
+
+[ext_resource type="PackedScene" uid="uid://chakex8pjhjee" path="res://scenes/common/menu.tscn" id="1_cxg3r"]
+[ext_resource type="PackedScene" uid="uid://ihkdnf5eqgg2" path="res://scenes/test04/backfaces.blend" id="2_5a1cy"]
+[ext_resource type="LightmapGIData" uid="uid://bu8j0or4o0nb7" path="res://scenes/test04/bake/test_04.lmbake" id="3_1mje0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ut7p1"]
+
+[sub_resource type="Sky" id="Sky_x13d2"]
+sky_material = SubResource("ProceduralSkyMaterial_ut7p1")
+
+[sub_resource type="Environment" id="Environment_u1bm4"]
+sky = SubResource("Sky_x13d2")
+ambient_light_source = 1
+reflected_light_source = 1
+tonemap_mode = 2
+tonemap_exposure = 3.0
+
+[node name="Test04" type="Node3D"]
+
+[node name="Menu" parent="." instance=ExtResource("1_cxg3r")]
+lightmap_gi_path = NodePath("../LightmapGI")
+info_text = "The scene is used to verify the generation of lightmaps of objects consisting of single walls. Each of the three boxes was created from a single cube with the front face removed. The first box has the material with cull mode set to back and normals pointing inside. The second box has material with cull mode off and normals pointing outside. The third box differs from the second only in that its material has an additional transparency set to 50%. In the middle of each box is a model with glowing material due to emission energy at 5.
+
+The scene is lit using WorldEnvironment with Clear Color set. Ambient Light and Reflected Light are Disabled. The image is brightened in Tonemap with Exposure set to 3. In addition, the scene is lit with DirectionalLight3D with Bake Mode set to Static. Lightmap denoising is disabled."
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u1bm4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 11, 0)
+light_color = Color(0.400698, 0.400698, 0.400698, 1)
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 5, 0, 26)
+current = true
+fov = 40.0
+
+[node name="backfaces" parent="." instance=ExtResource("2_5a1cy")]
+
+[node name="Label3D" type="Label3D" parent="backfaces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -5, 0)
+billboard = 1
+no_depth_test = true
+text = "Cull mode: back
+Faces normals: inside
+Transparency: disabled"
+font_size = 80
+
+[node name="Label3D2" type="Label3D" parent="backfaces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+billboard = 1
+no_depth_test = true
+text = "Cull mode: disabled
+Faces normals: outside
+Transparency: disabled"
+font_size = 80
+
+[node name="Label3D3" type="Label3D" parent="backfaces"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -5, 0)
+billboard = 1
+no_depth_test = true
+text = "Cull mode: disabled
+Faces normals: outside
+Transparency: alpha"
+font_size = 80
+
+[node name="LightmapGI" type="LightmapGI" parent="."]
+use_denoiser = false
+texel_scale = 4.0
+generate_probes_subdiv = 0
+light_data = ExtResource("3_1mje0")

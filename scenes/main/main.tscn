@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqdwc6jw14svp"]
+[gd_scene load_steps=6 format=3 uid="uid://cqdwc6jw14svp"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_a61ct"]
 [ext_resource type="Texture2D" uid="uid://qxmnlr4eobqe" path="res://scenes/test01/screen.jpg" id="2_snlq2"]
 [ext_resource type="Texture2D" uid="uid://dih7n3t1nkkvs" path="res://scenes/test02/screen.jpg" id="3_3i83g"]
 [ext_resource type="Texture2D" uid="uid://brnfiwl5b61ju" path="res://scenes/test03/screen.jpg" id="4_0x4jd"]
+[ext_resource type="Texture2D" uid="uid://d4mjilq6nsnbg" path="res://scenes/test04/screen.jpg" id="5_34tkq"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -60,6 +61,12 @@ layout_mode = 2
 tooltip_text = "Test 03"
 texture_normal = ExtResource("4_0x4jd")
 
+[node name="Test04" type="TextureButton" parent="MarginContainer/VBoxContainer/GridContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+tooltip_text = "Test 04"
+texture_normal = ExtResource("5_34tkq")
+
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -69,4 +76,5 @@ text = "Exit"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Test01" to="." method="_on_test_01_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Test02" to="." method="_on_test_02_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Test03" to="." method="_on_test_03_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/GridContainer/Test04" to="." method="_on_test_04_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
