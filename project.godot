@@ -28,3 +28,15 @@ gdscript/warnings/unsafe_call_argument=1
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[file_customization]
+
+folder_colors={
+"res://scenes/": "gray",
+"res://scenes/common/": "red",
+"res://scenes/main/": "orange",
+"res://scenes/test01/": "yellow",
+"res://scenes/test02/": "yellow",
+"res://scenes/test03/": "yellow",
+"res://scenes/test04/": "yellow"
+}
