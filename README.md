@@ -36,10 +36,22 @@ Using the buttons in the lower right corner, you can switch between the cameras 
 
 The scene is lit only with WorldEnvironment with Clear Color set. Ambient Light and Reflected Light are Disabled. For better effect, the image is brightened in Tonemap with Exposure set to 5.
 
+
+## Test 04
+
+![](https://raw.githubusercontent.com/patwork/Godot-LightmapGI-Tests/master/scenes/test04/screen.jpg)
+
+The scene is used to verify the generation of lightmaps of objects consisting of single walls. Each of the three boxes was created from a single cube with the front face removed. The first box has the material with cull mode set to back and normals pointing inside. The second box has material with cull mode off and normals pointing outside. The third box differs from the second only in that its material has an additional transparency set to 50%. In the middle of each box is a model with glowing material due to emission energy at 5.
+
+The scene is lit using WorldEnvironment with Clear Color set. Ambient Light and Reflected Light are Disabled. The image is brightened in Tonemap with Exposure set to 3. In addition, the scene is lit with DirectionalLight3D with Bake Mode set to Static. Lightmap denoising is disabled.
+
+
 ## Status
 - Test 01
   - Godot 4.3-dev4 (failed)
 - Test 02
   - Godot 4.3-dev4 (failed)
 - Test 03
+  - Godot 4.3-dev4 (failed)
+- Test 04
   - Godot 4.3-dev4 (failed)
