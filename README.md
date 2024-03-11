@@ -19,6 +19,8 @@ The scene is lit using only the WorldEnvironment with ProceduralSkyMaterial. For
 
 ![](https://raw.githubusercontent.com/patwork/Godot-LightmapGI-Tests/master/scenes/test02/screen.jpg)
 
+[Issue #88101](https://github.com/godotengine/godot/issues/88101)
+
 The scene is used to verify the correct lighting of dynamic objects by LightmapProbes. The animation changes the position of objects so that they fall within the range of different probes, both those outside and inside the pink box.
 
 The "One mesh" element is a single object, while "Separate meshes" is a group of independent objects.
@@ -30,6 +32,8 @@ The scene is lit using only WorldEnvironment with ProceduralSkyMaterial set. Pro
 
 ![](https://raw.githubusercontent.com/patwork/Godot-LightmapGI-Tests/master/scenes/test03/screen.jpg)
 
+[Issue #87815](https://github.com/godotengine/godot/issues/87815)
+
 The scene is used to verify the existence of lightmaps leaks after baking. Each of the four boxes has a different geometry. The first is a simple cube with normals pointing inward. The second consists of six separate cubes touching but not overlapping. The third consists of separate cubes but overlapping. The fourth is made up of separate cubes spaced apart so that they touch only with their edges.
 
 Using the buttons in the lower right corner, you can switch between the cameras inside each box.
@@ -40,6 +44,8 @@ The scene is lit only with WorldEnvironment with Clear Color set. Ambient Light 
 ## Test 04
 
 ![](https://raw.githubusercontent.com/patwork/Godot-LightmapGI-Tests/master/scenes/test04/screen.jpg)
+
+[Issue #89402](https://github.com/godotengine/godot/issues/89402)
 
 The scene is used to verify the generation of lightmaps of objects consisting of single walls. Each of the three boxes was created from a single cube with the front face removed. The first box has the material with cull mode set to back and normals pointing inside. The second box has material with cull mode off and normals pointing outside. The third box differs from the second only in that its material has an additional transparency set to 50%. In the middle of each box is a model with glowing material due to emission energy at 5.
 
